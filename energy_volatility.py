@@ -62,27 +62,30 @@ print(correlation)
 
 #4-visuliazation 
 
-fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(12, 14))
+fig, (ax1, ax2,ax3) = plt.subplots(3, 1, figsize=(12, 14))
 
 
 #Price chart (all three commodities)
-oil['Close'].plot(ax=ax1, label='Oil')
-gas['Close'].plot(ax=ax1, label='Gas')
-gold['Close'].plot(ax=ax1, label='Gold')
+oil.plot(ax=ax1, label='Oil')
+gas.plot(ax=ax1, label='Gas')
+gold.plot(ax=ax1, label='Gold')
 ax1.set_title('Oil vs Gold vs Gas')
 ax1.set_ylabel('Price (USD)')
 ax1.legend()
 
 
 # Chart 3 - Volatility
-df['Oil_Vol'].plot(ax=ax3, label='Oil_Volatility')
-df['Gas_Vol'].plot(ax=ax3, label='Gas_Volatility')
-df['Gold_Vol'].plot(ax=ax3, label='Gold_Volatility')
-ax3.set_title('Volatility chart')
-ax3.set_ylabel('Volatility (USD)')
-ax3.set_xlabel('Date')
-ax3.legend()
+df['Oil_Vol'].plot(ax=ax2, label='Oil_Volatility')
+df['Gas_Vol'].plot(ax=ax2, label='Gas_Volatility')
+df['Gold_Vol'].plot(ax=ax2, label='Gold_Volatility')
+ax2.set_title('Volatility chart')
+ax2.set_ylabel('Volatility (USD)')
+ax2.set_xlabel('Date')
+ax2.legend()
 
 
+#heatmap you need seaborn library
+sns.heatmap(correlation, annot=True, cmap='coolwarm', ax=ax3)
 
-sns.heatmap(correlation, annot=True, cmap='coolwarm', ax=ax4)
+plt.tight_layout()
+plt.show()
