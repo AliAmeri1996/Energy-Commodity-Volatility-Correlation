@@ -32,4 +32,4 @@ safe haven asset. Understanding these relationships helps traders:
 - **Rolling calculations** — calculated over a moving window of days rather than the whole dataset at once
 
 ## Status
-In progress
+Completed 
